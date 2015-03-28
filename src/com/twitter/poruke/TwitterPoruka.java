@@ -1,8 +1,16 @@
 package com.twitter.poruke;
 
+import java.util.GregorianCalendar;
+
 public class TwitterPoruka {
 	private String korisnik;
 	private String poruka;
+	private GregorianCalendar vreme = new GregorianCalendar();
+	
+
+	public GregorianCalendar getVreme() {
+		return vreme;
+	}
 
 	public String getKorisnik() {
 		return korisnik;
