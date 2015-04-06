@@ -58,7 +58,7 @@ public class TwitterTest {
 		poruka.setPoruka("Ovo je jedna dosadna poruka");
 		pomocnaLista.addLast(poruka);
 		tviter.unesi("Marko", "Ovo je jedna dosadna poruka");
-		assertEquals(true,tviter.uporediListe(pomocnaLista));
+		assertEquals(pomocnaLista, tviter.vratiSvePoruke());
 	}
 	//ovde je primeceno da metoda unesi ne unosi korisnika vec sama postavlja vrednost na "korisnik"
 
@@ -76,19 +76,10 @@ public class TwitterTest {
 		p.setPoruka("Ne mogu stalno sa smisljam nove poruke");
 		pomocnaLista.addLast(p);
 		tviter.unesi(p.getKorisnik(), p.getPoruka());
-		assertEquals(true,tviter.uporediListe(pomocnaLista));
+		assertEquals(pomocnaLista, tviter.vratiSvePoruke());
 	}
-	/**
-	 * Test method for {@link com.twitter.Twitter#unesi(java.lang.String, java.lang.String)}.
-	 */
-	@Test
-	public void testUnesiSimulacijaGreske() {
-		poruka.setKorisnik("Pera Peric");
-		poruka.setPoruka("Najcesce ime u metodama");
-		tviter.unesi(poruka.getKorisnik(), poruka.getPoruka());
-		pomocnaLista.addLast(poruka);
-		assertEquals(poruka.getKorisnik(),tviter.vratiKorisnika()); // dolazi do greske u unosu korisnika
-	}
+	
+	
 	/**
 	 * Test method for {@link com.twitter.Twitter#unesi(java.lang.String, java.lang.String)}.
 	 */
@@ -98,12 +89,13 @@ public class TwitterTest {
 		poruka.setPoruka("Najcesce ime u metodama");
 		tviter.unesi(poruka.getKorisnik(), poruka.getPoruka());
 		pomocnaLista.addLast(poruka);
-		assertEquals(true,tviter.uporediListe(pomocnaLista));
+		assertEquals(pomocnaLista,tviter.vratiSvePoruke());
 	}
 
 	/**
 	 * Test method for {@link com.twitter.Twitter#vratiPoruke(int, java.lang.String)}.
 	 */
+	
 	@Test
 	public void testVratiPoruke() {
 		TwitterPoruka p1 = new TwitterPoruka();
@@ -121,7 +113,7 @@ public class TwitterTest {
 		tviter.unesi(p3.getKorisnik(), p3.getPoruka());
 		pomocniNiz[0] = p1;
 		pomocniNiz[1] = p2;
-		assertEquals(true, tviter.uporedi2Niza(pomocniNiz, tviter.vratiPoruke(2, "poruka")));
+		assertArrayEquals(pomocniNiz, tviter.vratiPoruke(2, "poruka")); 
 	} // primeceno da dolazi do greske u metodi vratiPoruke,i ako pise da niz ima 2 mesta metoda postavlja element na 3. mesto u nizu
 
 	/**

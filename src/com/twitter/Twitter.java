@@ -18,48 +18,19 @@ public class Twitter {
 	/**
 	 * vraca sve tviter poruka
 	 * 
-	 * @return listu poruka kao objekte tipa TwitterPoruka
+	 * @return listu poruka kao objekte tipa TwitterPoruka koja sadrzi sve twitter poruke
 	 */
 	public LinkedList<TwitterPoruka> vratiSvePoruke() {
 		return poruke;
 	}
 
-	// Pomocna metoda koja vraca username korisnika sa indexom 0 u listi poruka
-	public String vratiKorisnika() {
-		return poruke.get(0).getKorisnik();
-	}
-
-	// pomocna metoda koja poredi listu sa listom poruke iz ove klase tako sto uporedjuje 1 po 1 element
-	public boolean uporediListe(LinkedList<TwitterPoruka> l1) {
-		for (int i = 0; i < l1.size(); i++) {
-			if (l1.get(i).getKorisnik().equals(poruke.get(i).getKorisnik())
-					&& l1.get(i).getPoruka().equals(poruke.get(i).getPoruka())
-					&& l1.get(i).getVreme().equals(poruke.get(i).getVreme())) {
-
-			} else
-				return false;
-		}
-		return true;
-	}
-
-	// pomocna metoda koja poredi 2 niza
-	public boolean uporedi2Niza(TwitterPoruka[] t1, TwitterPoruka[] t2) {
-		for (int i = 0; i < t1.length; i++) {
-			if (t1[i].getKorisnik().equals(t2[i].getKorisnik())
-					&& t1[i].getPoruka().equals(t2[i].getPoruka())
-					&& t1[i].getVreme().equals(t2[i].getVreme())) {
-
-			} else
-				return false;
-		}
-		return true;
-	}
+	
 
 	/**
 	 * metoda pravi novu tviter poruku i ubacuje je u listu na kraj
 	 * 
-	 * @param korisnik
-	 * @param poruka
+	 * @param korisnik predstavlja ime korisnika kao String
+	 * @param poruka predstavlja poruku na twitter-u kao String
 	 */
 	public void unesi(String korisnik, String poruka) {
 		// Pravi se nova poruka i puni podacima.
@@ -75,9 +46,10 @@ public class Twitter {
 	/**
 	 * vraca niz tviter poruka uanpred zadate velicine koje sadrze zadati tag
 	 * 
-	 * @param maxBroj
-	 * @param tag
-	 * @return niz objekata TwitterPoruka
+	 * @param maxBroj je maksimalan br rezultata koji medota moze da vrati
+	 * @param tag predstavlja parametar za pretrazivanje i unosi se kao String
+	 * @return niz objekata TwitterPoruka niz koji predstavlja rezulat pretrage
+	 * @throws java.lang.RuntimeException u koliko nije unet tag
 	 */
 	public TwitterPoruka[] vratiPoruke(int maxBroj, String tag) {
 		if (tag == null || tag.isEmpty())

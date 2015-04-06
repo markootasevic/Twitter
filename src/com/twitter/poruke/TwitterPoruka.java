@@ -24,7 +24,7 @@ public class TwitterPoruka {
 
 	/**
 	 *  vraca vreme kada je postavljen tvit
-	 * @return vreme kao GregorianCalendar
+	 * @return vreme kao GregorianCalendar i predstavlja vreme postavljanja tvita
 	 */
 	public GregorianCalendar getVreme() {
 		return vreme;
@@ -32,7 +32,7 @@ public class TwitterPoruka {
 
 	/**
 	 * vraca username korisnika
-	 * @return korisnik kao String
+	 * @return korisnik kao String sto predstavlja username korisnika
 	 */
 	public String getKorisnik() {
 		return korisnik;
@@ -40,7 +40,8 @@ public class TwitterPoruka {
 
 	/**
 	 * postavlja username korisnika na unetu vrednost kao String
-	 * @param korisnik
+	 * @param korisnik koji predstavlja username korisnika kao String
+	 * @throws java.lang.RuntimeException ako nije unesen korisnik
 	 */
 	public void setKorisnik(String korisnik) {
 		if (korisnik == null || korisnik.equals(""))
@@ -58,7 +59,8 @@ public class TwitterPoruka {
 
 	/**
 	 * postavlja poruku na unetu vrednost kao Sting
-	 * @param poruka
+	 * @param poruka koji predstavlja unesenu poruku kao String
+	 * @throws java.lang.RuntimeException ako nije unesena poruka
 	 */
 	public void setPoruka(String poruka) {
 		if (poruka == null || poruka.length() > 140)
@@ -74,4 +76,34 @@ public class TwitterPoruka {
 		return "KORISNIK:" + korisnik + " VREME:" + vreme.getTime()
 				+ " PORUKA:" + poruka;
 	}
+
+
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		TwitterPoruka other = (TwitterPoruka) obj;
+		if (korisnik == null) {
+			if (other.korisnik != null)
+				return false;
+		} else if (!korisnik.equals(other.korisnik))
+			return false;
+		if (poruka == null) {
+			if (other.poruka != null)
+				return false;
+		} else if (!poruka.equals(other.poruka))
+			return false;
+		if (vreme == null) {
+			if (other.vreme != null)
+				return false;
+		} else if (!vreme.equals(other.vreme))
+			return false;
+		return true;
+	}
+	
 }

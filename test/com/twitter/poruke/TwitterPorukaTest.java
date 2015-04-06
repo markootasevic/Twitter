@@ -19,7 +19,7 @@ public class TwitterPorukaTest {
 	private TwitterPoruka poruka;
 
 	/**
-	 * @throws java.lang.Exception
+	 * @throws java.lang.Exception .
 	 */
 	@Before
 	public void setUp() throws Exception {
@@ -27,7 +27,7 @@ public class TwitterPorukaTest {
 	}
 
 	/**
-	 * @throws java.lang.Exception
+	 * @throws java.lang.Exception .
 	 */
 	@After
 	public void tearDown() throws Exception {
@@ -87,10 +87,10 @@ public class TwitterPorukaTest {
 	 */
 	@Test(expected = java.lang.RuntimeException.class)
 	public void testSetPorukaDugackaPoruka() {
-		poruka.setPoruka("Vertikalne tržišne veze su veze onih koji prethode i onih koji slede. "
-				+ "Prostiru se od dobijanja primarne sirovine do krajnje prerade. Istraţivanjem i proučavanjem ove vrste "
-				+ "trţišne veze stvara se informaciona osnova za izbor najpovoljnijeg načina distribucije do krajnjeg potrošača. "
-				+ "Tipičan primer vertikalne trţišne veze je: proizvoĎač - trgovina na veliko - na malo – maloprodaja.");
+		poruka.setPoruka("Vertikalne trzisne veze su veze onih koji prethode i onih koji slede. "
+				+ "Prostiru se od dobijanja primarne sirovine do krajnje prerade. Istrazivanjem i proucavanjem ove vrste "
+				+ "trzisne veze stvara se informaciona osnova za izbor najpovoljnijeg nacina distribucije do krajnjeg potrosaca. "
+				+ "Tipican primer vertikalne trzišne veze je: proizvodjac - trgovina na veliko,na malo, maloprodaja.");
 	}
 
 	/**
